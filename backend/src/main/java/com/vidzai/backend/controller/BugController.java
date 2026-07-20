@@ -1,14 +1,16 @@
 package com.vidzai.backend.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.vidzai.backend.model.BugReport;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class BugController {
 
-    @GetMapping("/")
-    public String home() {
-        return "AI Smart Bug Analyzer Backend is Running!";
+    @PostMapping("/submitBug")
+    public String submitBug(@RequestBody BugReport bugReport) {
+
+        return "Bug Received: " + bugReport.getBugReport();
+
     }
 
 }
